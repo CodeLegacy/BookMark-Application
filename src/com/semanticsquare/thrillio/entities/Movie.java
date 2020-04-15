@@ -1,5 +1,9 @@
 package com.semanticsquare.thrillio.entities;
 
+import java.util.Arrays;
+
+import com.semanticsquare.thrillio.constants.MovieGenre;
+
 public class Movie extends Bookmark{
 	private int releaseYear;
 	private String[] cast;
@@ -47,4 +51,20 @@ public class Movie extends Bookmark{
 
 	private String genre;
 	private double imdbRatings;
+
+	@Override
+	public String toString() {
+		return "Movie [releaseYear=" + releaseYear + ", cast=" + Arrays.toString(cast) + ", directors="
+				+ Arrays.toString(directors) + ", genre=" + genre + ", imdbRatings=" + imdbRatings + "]";
+	}
+
+	@Override
+	public boolean isKidFriendlyEligible() {
+		// TODO Auto-generated method stub
+		if(genre.equals(MovieGenre.HORROR) || genre.contentEquals(MovieGenre.THRILLERS))
+	{
+	return false;	
+	}
+		return true;
+	}
 }
